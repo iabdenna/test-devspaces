@@ -1,20 +1,15 @@
 schemaVersion: 2.2.0
 metadata:
-  name: test-secure
+  name: test-node-app
 components:
   - name: node
     container:
       image: registry.access.redhat.com/ubi9/nodejs-20
+      memoryLimit: 1Gi
       endpoints:
         - name: web
           targetPort: 3000
           exposure: public
+          protocol: https
           secure: true
-commands:
-  - id: run
-    exec:
-      component: node
-      commandLine: node -e "require('http').createServer((req,res)=>res.end('Hello secure')).listen(3000)"
-      group:
-        kind: run
-        isDefault: true
+          discoverable: false

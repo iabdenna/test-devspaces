@@ -12,4 +12,3 @@ components:
           exposure: public
           protocol: https
           secure: true
-          discoverable: false

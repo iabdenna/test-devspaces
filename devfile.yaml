@@ -11,11 +11,4 @@ components:
           targetPort: 8080
           exposure: internal
           protocol: http
-commands:
-  - id: run
-    exec:
-      component: web
-      commandLine: python -m http.server 8080
-      group:
-        kind: run
-        isDefault: true
+

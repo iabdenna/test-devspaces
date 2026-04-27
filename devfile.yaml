@@ -1,14 +1,16 @@
 schemaVersion: 2.2.0
 metadata:
-  name: test-web
+  name: test-web-internal
 components:
   - name: web
     container:
-      image: quay.io/python:3.11
+      image: registry.redhat.io/ubi9/python-311
+      memoryLimit: 512Mi
       endpoints:
         - name: http
           targetPort: 8080
           exposure: internal
+          protocol: http
 commands:
   - id: run
     exec:

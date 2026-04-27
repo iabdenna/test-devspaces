@@ -1,14 +1,19 @@
 schemaVersion: 2.2.0
 metadata:
-  name: test-web-secure
+  name: test-web
 components:
   - name: web
     container:
-      image: registry.redhat.io/ubi9/httpd-24
-      memoryLimit: 512Mi
+      image: quay.io/python:3.11
       endpoints:
         - name: http
           targetPort: 8080
           exposure: internal
-          protocol: http
-          secure: true
+commands:
+  - id: run
+    exec:
+      component: web
+      commandLine: python -m http.server 8080
+      group:
+        kind: run
+        isDefault: true

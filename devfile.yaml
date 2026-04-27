@@ -1,14 +1,14 @@
 schemaVersion: 2.2.0
 metadata:
-  name: test-node-app
+  name: test-web-secure
 components:
-  - name: node
+  - name: web
     container:
-      image: registry.access.redhat.com/ubi9/nodejs-20
-      memoryLimit: 1Gi
+      image: quay.io/centos7/httpd-24-centos7
+      memoryLimit: 512Mi
       endpoints:
-        - name: web
-          targetPort: 3000
+        - name: http
+          targetPort: 8080
           exposure: public
-          protocol: https
+          protocol: http
           secure: true

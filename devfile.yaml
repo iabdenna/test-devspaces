@@ -4,7 +4,7 @@ metadata:
 components:
   - name: web
     container:
-      image: registry.redhat.io/ubi9/python-311
+      image: quay.io/devfile/universal-developer-image:ubi9-latest
       memoryLimit: 512Mi
       endpoints:
         - name: http
